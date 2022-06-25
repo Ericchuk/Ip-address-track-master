@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Alata&family=Bai+Jamjuree:wght@400;600&family=Barlow:wght@400;600&family=Big+Shoulders+Display:wght@700&family=Commissioner:wght@400;500;700&family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Inter:wght@300;400;500;700&family=Josefin+Sans:wght@300;400;700&family=Karla:wght@400;700&family=Kumbh+Sans:wght@400;700&family=League+Spartan:wght@500;600;700&family=Lexend+Deca&family=Manrope:wght@500;600;700;800&family=Open+Sans:wght@400;700&family=Outfit:wght@400;700;800&family=Overpass:wght@300;600&family=Poppins:wght@400;600;700&family=Raleway:wght@400;700&family=Red+Hat+Display:wght@500;700;900&family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Mono:wght@700&family=Ubuntu:wght@400;500;700&display=swap');
 
+
 :root{
     --Very-Dark-Gray: hsl(0, 0%, 17%);
     --Dark-Gray: hsl(0, 0%, 59%);
@@ -57,9 +58,11 @@ img{
     margin:20px 0;
     border-radius: 10px;
     padding:30px;
-    border:2px solid black;
+    /* border:2px solid black; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.534);
     position: absolute;
     width:88%;
+    z-index:2;
 }
 p{
     text-transform: uppercase;
@@ -73,4 +76,60 @@ p{
     color:black;
     font-size: 18px;
     font-weight: 600;
+}
+#map{
+    height:80vh;
+    z-index:1;
+    /* position: absolute; */
+    /* top:5px; */
+    /* border:1px solid black; */
+}
+
+@media screen and (min-width:375px) {
+    .detailsBoard{
+        width:90%;
+    }
+}
+
+@media screen and (min-width:700px) {
+    input{
+        width:50%;
+    }
+    img{
+        position: absolute;
+        right:150px;
+    }
+    .detailsBoard{
+        width:70%;
+        margin:30px 90px;
+    }
+}
+
+@media screen and (min-width:1000px) {
+    input{
+        width:61%;
+    }
+    .detailsBoard{
+        width:80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    div{
+        padding:0 30px;
+        border-right: 2px solid black;
+        text-align: left;
+    }
+    div:last-child{
+        border:none;
+    }
+}
+
+@media screen and (min-width:1300px) {
+    input{
+        width:65%;
+    }
+    img{
+        right:200px;
+    }
 }

@@ -19,7 +19,8 @@ fetchData();
 
 
 async function fetchDataClick(){
-    let web = "https://geo.ipify.org/api/v2/country?apiKey=at_z5c98dBARZ3etXRIc4luHcBfmabIU&ipAddress=";
+    let web = "https://geo.ipify.org/api/v2/country,city?apiKey=at_z5c98dBARZ3etXRIc4luHcBfmabIU&ipAddress="
+    // let web = "https://geo.ipify.org/api/v2/country?apiKey=at_z5c98dBARZ3etXRIc4luHcBfmabIU&ipAddress=";
     let combineBothAPI = `${web} ${url}`
     let dataResponse = await fetch(web);
     let dataResult = await dataResponse.json();
@@ -32,7 +33,18 @@ async function fetchDataClick(){
     isp.innerHTML = await dataResult.isp
     let lat = await dataResult.location.lat;
     let long = await dataResult.location.lng;
-    console.log(typeof dataResult, dataResult);
+    console.log(typeof dataResult, lat, long);
+
+    let map = L.map('map').setView([lat, long], 15);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+L.marker([lat, long]).addTo(map)
+    .bindPopup(`${region}, ${country}`)
+    .openPopup();
 }
+
 fetchDataClick();
 arrow.addEventListener("click", fetchDataClick);
